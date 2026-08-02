@@ -26,7 +26,12 @@ database is connected.
 3. Copy the project URL + anon key + service-role key into your Vercel
    environment variables (see `.env.example`)
 
-### 2. Admin login for your brother
+### 2. Storage buckets (for product photos)
+In Supabase Dashboard → Storage, create two buckets:
+- `product-images` — **public** (product photos served to customers)
+- `cake-refs` — **private** (customers' cake reference images)
+
+### 3. Admin login for your brother
 1. Supabase Dashboard → Authentication → Add user (email + password)
 2. SQL editor:
    ```sql
@@ -38,7 +43,19 @@ database is connected.
    one-tap "Send on WhatsApp" button on the customer's confirmation page.
 4. Set `NEXT_PUBLIC_SHOP_WHATSAPP` to the shop's WhatsApp number (e.g. `9198xxxxxxxx`).
 
-### 3. Razorpay (after KYC — the site works without it)
+**Daily admin workflow** (all from a phone at `/admin`):
+- **Add an item**: Products → "+ Add item" → take a photo → name → price →
+  Save. It's live on the website immediately. The form keeps the category
+  selected so a whole shelf can be added in minutes.
+- **Out of stock**: one tap on the switch next to any product.
+- **Orders**: live list with tap-to-call, cake message/date highlighted, and a
+  single button to advance status (received → preparing → ready → delivered).
+- **Pause the shop**: Shop tab → "Accepting orders" switch.
+
+Before the database is connected, `/admin` runs as a **demo preview** with
+sample data so you can try every screen.
+
+### 4. Razorpay (after KYC — the site works without it)
 - Sign up at [razorpay.com](https://razorpay.com); KYC needs the shop/proprietor
   PAN + bank account. **FSSAI registration is legally required for a food
   business** — basic registration is inexpensive for small turnover.
@@ -49,7 +66,7 @@ database is connected.
   `order.paid`, `payment.failed`) and set `RAZORPAY_WEBHOOK_SECRET`.
 - Until then, customers use Cash on Delivery / pay at pickup.
 
-### 4. Deploy on Vercel (free tier)
+### 5. Deploy on Vercel (free tier)
 1. Import this repo at [vercel.com](https://vercel.com)
 2. Add the environment variables from `.env.example`
 3. Set `NEXT_PUBLIC_SITE_URL` to your deployed URL

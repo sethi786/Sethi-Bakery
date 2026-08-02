@@ -100,6 +100,17 @@ export async function placeOrder(raw: unknown): Promise<PlaceOrderResult> {
     return { ok: false, error: "Please choose a delivery area." };
   }
 
+  if (!isDemoMode()) {
+    const { getShopSettings } = await import("./admin-data");
+    const settings = await getShopSettings();
+    if (!settings.accepting_orders) {
+      return {
+        ok: false,
+        error: "We are not taking online orders right now — please call the shop.",
+      };
+    }
+  }
+
   // ── Server-side repricing ────────────────────────────────────────────
   const products = await getProductsByIds(input.items.map((i) => i.product_id));
   const cakeGroups = await getCakeOptionGroups();
