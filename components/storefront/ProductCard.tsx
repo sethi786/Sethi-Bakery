@@ -25,7 +25,7 @@ export async function ProductCard({
 
   return (
     <div className="group relative flex flex-col overflow-hidden rounded-card bg-white shadow-warm transition-all duration-300 hover:-translate-y-1 hover:shadow-warm-lg">
-      <Link href={href} className="relative block aspect-[4/3] overflow-hidden">
+      <Link href={href} className="relative block aspect-square overflow-hidden">
         <div className="h-full w-full transition-transform duration-500 group-hover:scale-105">
           <ProductImage product={product} />
         </div>

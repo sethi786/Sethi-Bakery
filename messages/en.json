@@ -107,5 +107,25 @@
     "visit": "Visit us",
     "hours": "Open daily · 7:00 AM – 9:00 PM",
     "madeWith": "Family-run since decades in Patti, Punjab"
+  },
+  "announce": "Free delivery in Patti town on orders above ₹500 · Custom cakes need 24h notice",
+  "home2": {
+    "eyebrow": "Handcrafted in Patti since day one",
+    "storyLabel": "Our story",
+    "storyTitle": "A family bakery, not a factory",
+    "storyText": "Every morning before Patti wakes up, our ovens are already warm. Three generations of the Sethi family have baked for this town — the same recipes, the same counter near Bus Adda, now just a tap away.",
+    "storyCta": "See today’s bakes",
+    "cakeCtaTitle": "Cakes made for your moment",
+    "cakeCtaText": "Pick the size, shape and flavour. Add a photo, write a message. We bake it fresh for your date.",
+    "cakeCtaButton": "Design your cake",
+    "reviewsTitle": "What Patti says",
+    "review1Name": "Harpreet K.",
+    "review1Text": "Ordered a 2kg Black Forest for my son’s birthday — fresh, beautiful and delivered on time. Best in Patti, hands down.",
+    "review2Name": "Rajwinder S.",
+    "review2Text": "Their cream rolls with evening chai are a family tradition for us. Now the kids order online themselves!",
+    "review3Name": "Simran G.",
+    "review3Text": "The eggless red velvet was perfect for our anniversary. The message on the cake was written so beautifully.",
+    "galleryTitle": "Fresh from the ovens",
+    "galleryText": "Follow us on WhatsApp for today’s specials"
   }
 }

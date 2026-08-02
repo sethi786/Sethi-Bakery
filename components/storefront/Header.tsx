@@ -6,9 +6,14 @@ import { CartBadge } from "./CartBadge";
 
 export async function Header() {
   const t = await getTranslations("nav");
+  const tAll = await getTranslations();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-cocoa/5 bg-cream/85 backdrop-blur-md">
+    <>
+      <div className="bg-cocoa px-4 py-2 text-center text-[0.7rem] font-semibold uppercase tracking-[0.15em] text-gold-light">
+        {tAll("announce")}
+      </div>
+      <header className="sticky top-0 z-40 border-b border-cocoa/5 bg-cream/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-3 px-4">
         <Link href="/" className="shrink-0">
           <LogoWordmark compact />
@@ -29,6 +34,7 @@ export async function Header() {
           <CartBadge label={t("cart")} />
         </div>
       </div>
-    </header>
+      </header>
+    </>
   );
 }
