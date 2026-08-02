@@ -1,0 +1,111 @@
+{
+  "brand": {
+    "name": "Sethi Bakery",
+    "tagline": "Baked fresh in Patti, every morning",
+    "location": "Near Bus Adda, Patti, Punjab"
+  },
+  "nav": {
+    "home": "Home",
+    "cakes": "Cakes",
+    "menu": "Menu",
+    "cart": "Cart",
+    "search": "Search"
+  },
+  "home": {
+    "heroTitle": "Fresh from our ovens to your celebration",
+    "heroSubtitle": "Custom cakes, pastries, cream rolls and daily groceries — order online, pick up at the shop or get it delivered in Patti.",
+    "orderCake": "Order a Custom Cake",
+    "browseMenu": "Browse the Menu",
+    "featured": "Loved by Patti",
+    "categories": "Shop by category",
+    "whyTitle": "Why Sethi Bakery",
+    "whyFresh": "Baked fresh daily",
+    "whyFreshText": "Everything is made in our own ovens near Bus Adda — nothing sits overnight.",
+    "whyCustom": "Cakes made your way",
+    "whyCustomText": "Pick the size, shape, flavour and message. Eggless options for every cake.",
+    "whyLocal": "Local delivery",
+    "whyLocalText": "We deliver across Patti town and nearby villages, or keep your order ready for pickup.",
+    "marquee": "Fresh Cakes · Cream Rolls · Jam Rolls · Patties · Pastries · Daily Groceries ·"
+  },
+  "product": {
+    "addToCart": "Add to cart",
+    "added": "Added!",
+    "outOfStock": "Out of stock",
+    "eggless": "Eggless",
+    "withEgg": "Contains egg",
+    "bestseller": "Bestseller",
+    "premium": "Premium",
+    "customizeCake": "Customize this cake",
+    "from": "from"
+  },
+  "cake": {
+    "title": "Build your cake",
+    "priceLive": "Your price",
+    "messagePlaceholder": "e.g. Happy Birthday Simran",
+    "messageHint": "Up to 40 characters, written on the cake",
+    "leadTime": "Custom cakes need at least 24 hours notice",
+    "addToCart": "Add cake to cart"
+  },
+  "cart": {
+    "title": "Your cart",
+    "empty": "Your cart is empty",
+    "emptyCta": "See what's fresh today",
+    "subtotal": "Subtotal",
+    "checkout": "Checkout",
+    "remove": "Remove",
+    "qty": "Qty"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "yourDetails": "Your details",
+    "name": "Full name",
+    "phone": "Mobile number",
+    "phoneHint": "10-digit number, we'll use it to confirm your order",
+    "fulfillment": "How would you like to get your order?",
+    "pickup": "Pickup at shop",
+    "pickupText": "Near Bus Adda, Patti — free",
+    "delivery": "Home delivery",
+    "zone": "Delivery area",
+    "address": "Full address",
+    "landmark": "Landmark (optional)",
+    "note": "Note for the bakery (optional)",
+    "payment": "Payment",
+    "cod": "Cash on delivery / pay at pickup",
+    "codText": "Pay when you receive your order",
+    "online": "Pay online (UPI, card, netbanking)",
+    "onlineText": "Secure payment via Razorpay",
+    "placeOrder": "Place order",
+    "placing": "Placing your order…",
+    "total": "Total",
+    "deliveryFee": "Delivery fee",
+    "free": "Free"
+  },
+  "order": {
+    "thanks": "Thank you, {name}!",
+    "confirmed": "Your order is confirmed",
+    "number": "Order number",
+    "sendWhatsApp": "Send order to us on WhatsApp",
+    "whatsAppHint": "Tap to send your order details to the bakery — we confirm on WhatsApp.",
+    "status": "Order status",
+    "demoNote": "Demo mode: this order was not saved — connect the database to take real orders.",
+    "statuses": {
+      "pending_payment": "Awaiting payment",
+      "received": "Order received",
+      "preparing": "Being prepared",
+      "ready": "Ready",
+      "out_for_delivery": "Out for delivery",
+      "delivered": "Delivered",
+      "cancelled": "Cancelled"
+    }
+  },
+  "search": {
+    "placeholder": "Search cakes, snacks, groceries…",
+    "results": "Results for \"{query}\"",
+    "none": "Nothing found — try another word"
+  },
+  "footer": {
+    "visit": "Visit us",
+    "hours": "Open daily · 7:00 AM – 9:00 PM",
+    "madeWith": "Family-run since decades in Patti, Punjab"
+  }
+}
