@@ -6,6 +6,7 @@ import { Link } from "@/i18n/navigation";
 import { cartSubtotal, useCart } from "@/lib/cart";
 import { lt } from "@/lib/content";
 import { formatPaise } from "@/lib/money";
+import { IconBag, IconPencil } from "@/components/icons";
 
 export function CartView() {
   const t = useTranslations("cart");
@@ -19,7 +20,9 @@ export function CartView() {
   if (items.length === 0) {
     return (
       <div className="py-20 text-center">
-        <p className="text-6xl">🧺</p>
+        <span className="inline-flex h-20 w-20 items-center justify-center rounded-full bg-cream-deep text-caramel">
+          <IconBag size={36} strokeWidth={1.4} />
+        </span>
         <p className="font-display mt-4 text-xl font-semibold text-cocoa">
           {t("empty")}
         </p>
@@ -48,8 +51,9 @@ export function CartView() {
                 {lt(item.name, locale)}
               </p>
               {item.customization?.message && (
-                <p className="truncate text-xs text-cocoa-light">
-                  ✍️ “{item.customization.message}”
+                <p className="flex items-center gap-1.5 truncate text-xs text-cocoa-light">
+                  <IconPencil size={11} className="shrink-0" />“
+                  {item.customization.message}”
                 </p>
               )}
               <p className="mt-0.5 text-sm text-cocoa-light">

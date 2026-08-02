@@ -71,6 +71,25 @@ h1, h2, h3, .font-display {
   transform: translateY(0);
 }
 
+/* Unified warm photo treatment — makes mixed photography read as one shoot */
+.photo-warm {
+  filter: saturate(1.06) sepia(0.08) contrast(1.02);
+}
+
+/* Scalloped "doily" divider — bakery signature between sections.
+   Set --scallop-color to the color of the section BELOW the divider. */
+.scallop-divider {
+  height: 14px;
+  background-image: radial-gradient(
+    circle at 9px -3px,
+    var(--scallop-color, var(--color-cream)) 9px,
+    transparent 10px
+  );
+  background-size: 18px 14px;
+  background-repeat: repeat-x;
+  transform: rotate(180deg);
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;

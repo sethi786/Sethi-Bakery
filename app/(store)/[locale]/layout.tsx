@@ -6,7 +6,31 @@ import { setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Header } from "@/components/storefront/Header";
 import { Footer } from "@/components/storefront/Footer";
+import { shopConfig } from "@/lib/shop-config";
 import "@/app/globals.css";
+
+const localBusinessJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Bakery",
+  name: shopConfig.name,
+  telephone: shopConfig.phone,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: shopConfig.address.street,
+    addressLocality: shopConfig.address.city,
+    addressRegion: shopConfig.address.state,
+    postalCode: shopConfig.address.pincode,
+    addressCountry: "IN",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: shopConfig.geo.lat,
+    longitude: shopConfig.geo.lng,
+  },
+  openingHours: "Mo-Su 07:00-21:00",
+  servesCuisine: "Bakery",
+  priceRange: "₹₹",
+};
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -52,6 +76,12 @@ export default async function StoreLayout({
   return (
     <html lang={locale} className={`${fraunces.variable} ${inter.variable}`}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(localBusinessJsonLd),
+          }}
+        />
         <NextIntlClientProvider>
           <Header />
           <main className="min-h-[70vh]">{children}</main>

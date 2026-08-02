@@ -12,6 +12,7 @@ import {
 } from "@/lib/pricing";
 import { useCart } from "@/lib/cart";
 import type { CakeOptionGroup, Product } from "@/lib/types";
+import { IconClock, IconPencil } from "@/components/icons";
 
 function toLocalInputValue(d: Date): string {
   const pad = (n: number) => String(n).padStart(2, "0");
@@ -146,9 +147,10 @@ export function CakeBuilder({
             }`}
           />
           <p
-            className={`mt-1.5 text-xs ${scheduleValid ? "text-cocoa-light" : "font-semibold text-berry"}`}
+            className={`mt-1.5 flex items-center gap-1.5 text-xs ${scheduleValid ? "text-cocoa-light" : "font-semibold text-berry"}`}
           >
-            ⏱ {t("leadTime")}
+            <IconClock size={12} className="shrink-0" />
+            {t("leadTime")}
           </p>
         </div>
       </div>
@@ -169,8 +171,9 @@ export function CakeBuilder({
             </li>
           ))}
           {message && (
-            <li className="flex justify-between gap-3">
-              <span>✍️ “{message}”</span>
+            <li className="flex items-center gap-1.5">
+              <IconPencil size={11} className="shrink-0" />
+              <span>“{message}”</span>
             </li>
           )}
         </ul>

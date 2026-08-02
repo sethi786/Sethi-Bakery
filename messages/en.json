@@ -9,14 +9,17 @@
     "cakes": "Cakes",
     "menu": "Menu",
     "cart": "Cart",
-    "search": "Search"
+    "search": "Search",
+    "about": "About",
+    "contact": "Contact",
+    "track": "Track order"
   },
   "home": {
     "heroTitle": "Fresh from our ovens to your celebration",
-    "heroSubtitle": "Custom cakes, pastries, cream rolls and daily groceries — order online, pick up at the shop or get it delivered in Patti.",
+    "heroSubtitle": "Custom cakes, pastries, cream rolls and daily groceries — order online, pick up at the shop or get home delivery.",
     "orderCake": "Order a Custom Cake",
     "browseMenu": "Browse the Menu",
-    "featured": "Loved by Patti",
+    "featured": "Our best sellers",
     "categories": "Shop by category",
     "whyTitle": "Why Sethi Bakery",
     "whyFresh": "Baked fresh daily",
@@ -108,24 +111,78 @@
     "hours": "Open daily · 7:00 AM – 9:00 PM",
     "madeWith": "Family-run since decades in Patti, Punjab"
   },
-  "announce": "Free delivery in Patti town on orders above ₹500 · Custom cakes need 24h notice",
+  "announce": "Free local delivery on orders above ₹499 · Custom cakes need 24h notice",
   "home2": {
-    "eyebrow": "Handcrafted in Patti since day one",
+    "eyebrow": "Fresh from our ovens every morning",
     "storyLabel": "Our story",
     "storyTitle": "A family bakery, not a factory",
-    "storyText": "Every morning before Patti wakes up, our ovens are already warm. Three generations of the Sethi family have baked for this town — the same recipes, the same counter near Bus Adda, now just a tap away.",
+    "storyText": "Every morning before the town wakes up, our ovens are already warm. Three generations of the Sethi family have baked at the same counter in Patti — the same recipes, the same standards, now just a tap away.",
     "storyCta": "See today’s bakes",
     "cakeCtaTitle": "Cakes made for your moment",
     "cakeCtaText": "Pick the size, shape and flavour. Add a photo, write a message. We bake it fresh for your date.",
     "cakeCtaButton": "Design your cake",
-    "reviewsTitle": "What Patti says",
+    "reviewsTitle": "Loved by our customers",
     "review1Name": "Harpreet K.",
-    "review1Text": "Ordered a 2kg Black Forest for my son’s birthday — fresh, beautiful and delivered on time. Best in Patti, hands down.",
+    "review1Text": "Ordered a 2kg Black Forest for my son’s birthday — fresh, beautiful and delivered on time. Highly recommended.",
     "review2Name": "Rajwinder S.",
     "review2Text": "Their cream rolls with evening chai are a family tradition for us. Now the kids order online themselves!",
     "review3Name": "Simran G.",
     "review3Text": "The eggless red velvet was perfect for our anniversary. The message on the cake was written so beautifully.",
     "galleryTitle": "Fresh from the ovens",
-    "galleryText": "Follow us on WhatsApp for today’s specials"
+    "galleryText": "Follow us on WhatsApp for today’s specials",
+    "reviewTag": "Verified customer",
+    "trustFssai": "FSSAI-registered kitchen",
+    "trustFresh": "Baked fresh daily",
+    "trustCod": "Pay on delivery",
+    "trustUpi": "Secure UPI payments"
+  },
+  "about": {
+    "title": "About Sethi Bakery",
+    "lead": "A third-generation family bakery serving handmade cakes, pastries and fresh bakes alongside everyday groceries.",
+    "p1": "Sethi Bakery started as a small counter in the main bazaar and has been part of the town’s birthdays, weddings and evening chai for decades. Everything we sell is baked in our own kitchen — never bought in, never day-old.",
+    "p2": "Today the next generation runs the same ovens with the same recipes, and this website brings the counter to your phone: order a custom cake, get fresh patties for a party, or top up the week’s groceries.",
+    "valuesTitle": "What we stand by",
+    "v1": "Fresh every morning",
+    "v1Text": "Batches are baked through the day. Anything unsold does not return to the shelf tomorrow.",
+    "v2": "Honest ingredients",
+    "v2Text": "Real butter, real cream, and eggless options for every single cake.",
+    "v3": "Made to order",
+    "v3Text": "Custom cakes are baked for your date — that’s why we ask for 24 hours’ notice."
+  },
+  "contact": {
+    "title": "Contact us",
+    "lead": "Questions about an order or a custom cake? Call, WhatsApp, or walk in — we’re at the shop every day.",
+    "call": "Call the shop",
+    "whatsapp": "Chat on WhatsApp",
+    "visit": "Visit us",
+    "hoursTitle": "Opening hours",
+    "mapTitle": "Find us",
+    "openMaps": "Open in Google Maps"
+  },
+  "track": {
+    "title": "Track your order",
+    "lead": "Enter your order number and the mobile number you ordered with.",
+    "orderNumber": "Order number (e.g. SB-260802-014)",
+    "phone": "Mobile number",
+    "submit": "Find my order",
+    "notFound": "No order found — check the order number and phone number.",
+    "searching": "Searching…"
+  },
+  "policies": {
+    "title": "Delivery & refund policy",
+    "deliveryTitle": "Delivery",
+    "delivery1": "We deliver across the town and nearby villages through our own rider. Delivery fees and free-delivery thresholds are shown clearly at checkout — no hidden charges.",
+    "delivery2": "Pickup at the shop is always free. We will keep your order ready at the time you choose.",
+    "cakesTitle": "Custom cakes",
+    "cakes1": "Custom cakes need at least 24 hours’ notice and are baked specifically for your order.",
+    "cakes2": "Cancellations up to 12 hours before the delivery time receive a full refund. Inside 12 hours the cake is already in production and we can offer a reschedule instead.",
+    "refundTitle": "Refunds & quality promise",
+    "refund1": "If anything arrives damaged or not fresh, send us a photo on WhatsApp within 2 hours of delivery and we will replace it or refund it — no questions asked.",
+    "refund2": "Online payments are processed securely by Razorpay. Refunds to the original payment method take 5–7 working days."
+  },
+  "checkout2": {
+    "codReassure": "No advance payment — pay only when you receive your order",
+    "onlineReassure": "256-bit encrypted · Secured by Razorpay",
+    "helpLine": "Need help with your order? Call us:"
   }
 }

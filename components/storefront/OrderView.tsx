@@ -5,6 +5,12 @@ import { useTranslations } from "next-intl";
 import { formatPaise } from "@/lib/money";
 import { orderWhatsAppLink } from "@/lib/whatsapp";
 import type { OrderStatus, PlacedOrder } from "@/lib/types";
+import {
+  IconCheck,
+  IconPencil,
+  IconSearch,
+  IconWhatsApp,
+} from "@/components/icons";
 
 const STATUS_FLOW: OrderStatus[] = [
   "received",
@@ -41,8 +47,10 @@ export function OrderView({
   if (!order) {
     return (
       <div className="py-20 text-center text-cocoa-light">
-        <p className="text-5xl">🔎</p>
-        <p className="mt-4 font-semibold">{orderNumber}</p>
+        <span className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-cream-deep text-caramel">
+          <IconSearch size={28} strokeWidth={1.4} />
+        </span>
+        <p className="mt-4 font-mono font-semibold">{orderNumber}</p>
       </div>
     );
   }
@@ -58,8 +66,8 @@ export function OrderView({
   return (
     <div className="mx-auto max-w-xl space-y-6">
       <div className="rounded-card bg-white p-8 text-center shadow-warm">
-        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-pistachio/15 text-3xl">
-          🎉
+        <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-pistachio/15 text-pistachio">
+          <IconCheck size={32} strokeWidth={2.4} />
         </div>
         <h1 className="font-display mt-4 text-2xl font-bold text-cocoa">
           {t("thanks", { name: order.customer_name.split(" ")[0] })}
@@ -71,7 +79,7 @@ export function OrderView({
 
         {order.demo && (
           <p className="mt-4 rounded-xl bg-gold-light/60 px-4 py-2.5 text-xs font-medium text-cocoa">
-            ⚠️ {t("demoNote")}
+            {t("demoNote")}
           </p>
         )}
 
@@ -79,9 +87,10 @@ export function OrderView({
           href={waLink}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-6 block w-full rounded-full bg-[#25D366] py-3.5 text-sm font-bold text-white shadow-warm transition-transform active:scale-[0.98]"
+          className="mt-6 flex w-full items-center justify-center gap-2.5 rounded-full bg-[#25D366] py-3.5 text-sm font-bold text-white shadow-warm transition-transform active:scale-[0.98]"
         >
-          🟢 {t("sendWhatsApp")}
+          <IconWhatsApp size={18} />
+          {t("sendWhatsApp")}
         </a>
         <p className="mt-2 text-xs text-cocoa-light">{t("whatsAppHint")}</p>
       </div>
@@ -136,8 +145,9 @@ export function OrderView({
                 </span>
               </div>
               {item.customization?.message && (
-                <p className="text-xs text-cocoa-light">
-                  ✍️ “{item.customization.message}”
+                <p className="flex items-center gap-1.5 text-xs text-cocoa-light">
+                  <IconPencil size={11} className="shrink-0" />“
+                  {item.customization.message}”
                 </p>
               )}
             </li>

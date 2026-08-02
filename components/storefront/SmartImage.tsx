@@ -60,7 +60,7 @@ export function SmartImage({
       fetchPriority={priority ? "high" : undefined}
       decoding="async"
       onError={() => setFailed(true)}
-      className={`h-full w-full object-cover ${imgClassName} ${className}`}
+      className={`photo-warm h-full w-full object-cover ${imgClassName} ${className}`}
     />
   );
 }

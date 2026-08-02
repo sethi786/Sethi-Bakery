@@ -52,7 +52,7 @@ export default async function AdminOrdersPage() {
         {(orders ?? []).length === 0 && (
           <p className="rounded-card bg-white p-6 text-center text-cocoa-light shadow-warm">
             No orders yet — they&apos;ll appear here the moment a customer
-            checks out. 🧁
+            checks out.
           </p>
         )}
         {(orders ?? []).map((order) => (
@@ -66,19 +66,19 @@ export default async function AdminOrdersPage() {
                   {order.customer_name} ·{" "}
                   <a
                     href={`tel:+91${order.customer_phone}`}
-                    className="font-semibold text-caramel"
+                    className="font-semibold text-caramel underline underline-offset-2"
                   >
-                    📞 {order.customer_phone}
+                    {order.customer_phone}
                   </a>
                 </p>
                 <p className="mt-0.5 text-xs text-cocoa-light">
                   {order.fulfillment_type === "delivery"
-                    ? `🛵 ${order.address_text ?? "Delivery"}`
-                    : "🏪 Pickup"}
+                    ? `Delivery — ${order.address_text ?? ""}`
+                    : "Pickup at shop"}
                   {" · "}
                   {order.payment_status === "paid"
-                    ? "✅ Paid online"
-                    : "💵 Collect payment"}
+                    ? "Paid online"
+                    : "Collect payment"}
                 </p>
               </div>
               <div className="text-right">
@@ -106,12 +106,12 @@ export default async function AdminOrdersPage() {
                     {item.qty} × {item.name_snapshot}
                     {item.customization?.message && (
                       <span className="block pl-4 text-xs">
-                        ✍️ “{item.customization.message}”
+                        Message: “{item.customization.message}”
                       </span>
                     )}
                     {item.customization?.scheduled_for && (
                       <span className="block pl-4 text-xs font-semibold text-berry">
-                        ⏰ Needed by{" "}
+                        Needed by{" "}
                         {new Date(
                           item.customization.scheduled_for
                         ).toLocaleString("en-IN", {

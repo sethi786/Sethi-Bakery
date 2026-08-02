@@ -60,7 +60,7 @@ export function LogoWordmark({ compact = false }: { compact?: boolean }) {
           SETHI
         </span>
         <span className="block text-[0.6rem] font-medium uppercase tracking-[0.28em] text-caramel">
-          Bakery · Patti
+          Bakery
         </span>
       </span>
     </span>

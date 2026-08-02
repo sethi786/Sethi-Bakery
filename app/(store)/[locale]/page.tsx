@@ -6,6 +6,34 @@ import { img } from "@/lib/brand-images";
 import { Reveal } from "@/components/storefront/Reveal";
 import { ProductCard } from "@/components/storefront/ProductCard";
 import { SmartImage } from "@/components/storefront/SmartImage";
+import {
+  IconBanknote,
+  IconFlame,
+  IconShield,
+  IconStar,
+  WheatFlourish,
+} from "@/components/icons";
+
+function SectionHeading({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex flex-col items-center gap-2 text-center">
+      <WheatFlourish className="text-caramel" />
+      <h2 className="font-display text-3xl font-semibold text-cocoa sm:text-4xl">
+        {children}
+      </h2>
+    </div>
+  );
+}
+
+function Stars({ size = 14 }: { size?: number }) {
+  return (
+    <span className="flex gap-0.5 text-gold" aria-label="5 stars">
+      {[...Array(5)].map((_, i) => (
+        <IconStar key={i} size={size} />
+      ))}
+    </span>
+  );
+}
 
 export default async function HomePage({
   params,
@@ -44,10 +72,12 @@ export default async function HomePage({
         />
         <div className="relative flex h-full flex-col items-center justify-center px-4 text-center text-white">
           <p
-            className="animate-fade-up text-[0.7rem] font-bold uppercase tracking-[0.4em] text-gold-light"
+            className="animate-fade-up flex items-center gap-3 text-[0.7rem] font-bold uppercase tracking-[0.4em] text-gold-light"
             style={{ animationDelay: "0ms" }}
           >
+            <WheatFlourish className="hidden text-gold-light sm:block" />
             {t2("eyebrow")}
+            <WheatFlourish className="hidden text-gold-light sm:block" />
           </p>
           <h1
             className="font-display animate-fade-up mx-auto mt-5 max-w-4xl text-4xl font-semibold leading-[1.1] sm:text-6xl lg:text-7xl"
@@ -81,8 +111,30 @@ export default async function HomePage({
         </div>
       </section>
 
+      {/* ── Trust bar ────────────────────────────────────────── */}
+      <div className="border-b border-cocoa/10 bg-white">
+        <div className="mx-auto grid max-w-6xl grid-cols-2 gap-x-4 gap-y-3 px-4 py-5 sm:grid-cols-4">
+          {[
+            { icon: <IconShield size={19} />, label: t2("trustFssai") },
+            { icon: <IconFlame size={19} />, label: t2("trustFresh") },
+            { icon: <IconBanknote size={19} />, label: t2("trustCod") },
+            { icon: <IconStar size={17} />, label: t2("trustUpi") },
+          ].map((item, i) => (
+            <div
+              key={i}
+              className="flex items-center justify-center gap-2.5 text-center"
+            >
+              <span className="text-caramel">{item.icon}</span>
+              <span className="text-xs font-semibold uppercase tracking-wide text-cocoa-light">
+                {item.label}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* ── Marquee ──────────────────────────────────────────── */}
-      <div className="overflow-hidden border-y border-cocoa/10 bg-cream py-3.5">
+      <div className="overflow-hidden border-b border-cocoa/10 bg-cream py-3.5">
         <div className="font-display flex w-max animate-marquee gap-8 whitespace-nowrap text-sm uppercase tracking-[0.3em] text-caramel">
           {[0, 1].map((n) => (
             <span key={n} aria-hidden={n === 1}>
@@ -94,13 +146,8 @@ export default async function HomePage({
 
       {/* ── Best sellers ─────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-20">
-        <Reveal className="text-center">
-          <p className="text-[0.7rem] font-bold uppercase tracking-[0.35em] text-caramel">
-            ★ ★ ★ ★ ★
-          </p>
-          <h2 className="font-display mt-2 text-3xl font-semibold text-cocoa sm:text-4xl">
-            {t("featured")}
-          </h2>
+        <Reveal>
+          <SectionHeading>{t("featured")}</SectionHeading>
         </Reveal>
         <div className="mt-10 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
           {featured.slice(0, 8).map((product, i) => (
@@ -113,10 +160,8 @@ export default async function HomePage({
 
       {/* ── Category tiles with photography ──────────────────── */}
       <section className="mx-auto max-w-6xl px-4 pb-16 sm:pb-20">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-semibold text-cocoa sm:text-4xl">
-            {t("categories")}
-          </h2>
+        <Reveal>
+          <SectionHeading>{t("categories")}</SectionHeading>
         </Reveal>
         <div className="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {categories.map((category, i) => (
@@ -151,6 +196,7 @@ export default async function HomePage({
       </section>
 
       {/* ── Story: editorial split ───────────────────────────── */}
+      <div className="scallop-divider" style={{ "--scallop-color": "white" } as React.CSSProperties} />
       <section className="bg-white">
         <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 py-16 sm:py-24 lg:grid-cols-2">
           <Reveal>
@@ -225,38 +271,46 @@ export default async function HomePage({
 
       {/* ── Testimonials ─────────────────────────────────────── */}
       <section className="mx-auto max-w-6xl px-4 py-16 sm:py-24">
-        <Reveal className="text-center">
-          <h2 className="font-display text-3xl font-semibold text-cocoa sm:text-4xl">
-            {t2("reviewsTitle")}
-          </h2>
+        <Reveal>
+          <SectionHeading>{t2("reviewsTitle")}</SectionHeading>
         </Reveal>
         <div className="mt-10 grid gap-5 sm:grid-cols-3">
-          {([1, 2, 3] as const).map((n, i) => (
-            <Reveal key={n} delay={i * 120}>
-              <figure className="flex h-full flex-col rounded-card bg-white p-7 shadow-warm">
-                <p className="text-sm tracking-[0.25em] text-gold">★★★★★</p>
-                <blockquote className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-cocoa-light">
-                  “{t2(`review${n}Text`)}”
-                </blockquote>
-                <figcaption className="font-display mt-5 border-t border-cocoa/10 pt-4 text-sm font-semibold text-cocoa">
-                  {t2(`review${n}Name`)}
-                  <span className="mt-0.5 block text-xs font-normal uppercase tracking-[0.15em] text-caramel">
-                    Patti, Punjab
-                  </span>
-                </figcaption>
-              </figure>
-            </Reveal>
-          ))}
+          {([1, 2, 3] as const).map((n, i) => {
+            const name = t2(`review${n}Name`);
+            return (
+              <Reveal key={n} delay={i * 120}>
+                <figure className="flex h-full flex-col rounded-card bg-white p-7 shadow-warm">
+                  <div className="flex items-center gap-3">
+                    <span className="font-display flex h-11 w-11 items-center justify-center rounded-full bg-cream-deep text-base font-bold text-caramel">
+                      {name.charAt(0)}
+                    </span>
+                    <div>
+                      <p className="text-sm font-semibold text-cocoa">{name}</p>
+                      <p className="text-[0.65rem] font-medium uppercase tracking-[0.12em] text-pistachio">
+                        ✓ {t2("reviewTag")}
+                      </p>
+                    </div>
+                    <span className="ml-auto">
+                      <Stars />
+                    </span>
+                  </div>
+                  <blockquote className="mt-4 flex-1 text-[0.95rem] leading-relaxed text-cocoa-light">
+                    “{t2(`review${n}Text`)}”
+                  </blockquote>
+                </figure>
+              </Reveal>
+            );
+          })}
         </div>
       </section>
 
       {/* ── Gallery strip ────────────────────────────────────── */}
       <section className="pb-16 sm:pb-20">
-        <Reveal className="px-4 text-center">
-          <h2 className="font-display text-2xl font-semibold text-cocoa sm:text-3xl">
-            {t2("galleryTitle")}
-          </h2>
-          <p className="mt-2 text-sm text-cocoa-light">{t2("galleryText")}</p>
+        <Reveal className="px-4">
+          <SectionHeading>{t2("galleryTitle")}</SectionHeading>
+          <p className="mt-2 text-center text-sm text-cocoa-light">
+            {t2("galleryText")}
+          </p>
         </Reveal>
         <div className="mt-8 grid grid-cols-3 gap-1 sm:grid-cols-6">
           {img.gallery.map((src, i) => (

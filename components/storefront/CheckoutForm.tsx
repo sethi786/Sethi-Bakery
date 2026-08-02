@@ -7,6 +7,15 @@ import { cartSubtotal, useCart } from "@/lib/cart";
 import { lt } from "@/lib/content";
 import { formatPaise } from "@/lib/money";
 import { confirmPayment, placeOrder } from "@/lib/orders";
+import {
+  IconBanknote,
+  IconLock,
+  IconPhone,
+  IconScooter,
+  IconShield,
+  IconStore,
+} from "@/components/icons";
+import { shopConfig } from "@/lib/shop-config";
 import type { DeliveryZone, FulfillmentType, PaymentMethod, PlacedOrder } from "@/lib/types";
 
 declare global {
@@ -33,6 +42,7 @@ export function CheckoutForm({
   razorpayEnabled: boolean;
 }) {
   const t = useTranslations("checkout");
+  const t2 = useTranslations("checkout2");
   const locale = useLocale();
   const router = useRouter();
   const { items, clear } = useCart();
@@ -201,8 +211,14 @@ export function CheckoutForm({
                 }`}
                 aria-pressed={fulfillment === opt.type}
               >
-                <span className="block font-semibold text-cocoa">
-                  {opt.type === "pickup" ? "🏪 " : "🛵 "}
+                <span className="flex items-center gap-2 font-semibold text-cocoa">
+                  <span className="text-caramel">
+                    {opt.type === "pickup" ? (
+                      <IconStore size={18} />
+                    ) : (
+                      <IconScooter size={18} />
+                    )}
+                  </span>
                   {opt.title}
                 </span>
                 <span className="mt-1 block text-xs text-cocoa-light">{opt.text}</span>
@@ -261,7 +277,12 @@ export function CheckoutForm({
               }`}
               aria-pressed={payment === "cod"}
             >
-              <span className="block font-semibold text-cocoa">💵 {t("cod")}</span>
+              <span className="flex items-center gap-2 font-semibold text-cocoa">
+                <span className="text-caramel">
+                  <IconBanknote size={18} />
+                </span>
+                {t("cod")}
+              </span>
               <span className="mt-1 block text-xs text-cocoa-light">{t("codText")}</span>
             </button>
             {razorpayEnabled && (
@@ -275,7 +296,12 @@ export function CheckoutForm({
                 }`}
                 aria-pressed={payment === "razorpay"}
               >
-                <span className="block font-semibold text-cocoa">📱 {t("online")}</span>
+                <span className="flex items-center gap-2 font-semibold text-cocoa">
+                  <span className="text-caramel">
+                    <IconLock size={18} />
+                  </span>
+                  {t("online")}
+                </span>
                 <span className="mt-1 block text-xs text-cocoa-light">{t("onlineText")}</span>
               </button>
             )}
@@ -320,10 +346,30 @@ export function CheckoutForm({
         <button
           type="submit"
           disabled={submitting}
-          className="mt-5 w-full rounded-full bg-caramel py-3.5 text-sm font-bold text-white shadow-warm transition-all hover:bg-gold active:scale-[0.98] disabled:opacity-50"
+          className="mt-5 w-full rounded-full bg-caramel py-3.5 text-sm font-bold uppercase tracking-widest text-white shadow-warm transition-all hover:bg-gold active:scale-[0.98] disabled:opacity-50"
         >
           {submitting ? t("placing") : `${t("placeOrder")} · ${formatPaise(total)}`}
         </button>
+        <p className="mt-3 flex items-center justify-center gap-2 text-center text-xs text-cocoa-light">
+          {payment === "cod" ? (
+            <>
+              <IconShield size={14} className="shrink-0 text-pistachio" />
+              {t2("codReassure")}
+            </>
+          ) : (
+            <>
+              <IconLock size={14} className="shrink-0 text-pistachio" />
+              {t2("onlineReassure")}
+            </>
+          )}
+        </p>
+        <a
+          href={shopConfig.phoneHref}
+          className="mt-4 flex items-center justify-center gap-2 border-t border-cocoa/10 pt-4 text-xs text-cocoa-light transition-colors hover:text-cocoa"
+        >
+          <IconPhone size={13} />
+          {t2("helpLine")} {shopConfig.phone}
+        </a>
       </aside>
     </form>
   );

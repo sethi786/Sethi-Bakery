@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LogoRoundel } from "@/components/Logo";
+import { IconBag, IconCake } from "@/components/icons";
 import "@/app/globals.css";
 
 export const metadata: Metadata = {
@@ -32,15 +33,15 @@ export default function AdminLayout({
         <nav className="fixed inset-x-0 bottom-0 z-40 border-t border-cocoa/10 bg-white">
           <div className="mx-auto flex max-w-3xl">
             {[
-              { href: "/admin/orders", label: "Orders", emoji: "🧾" },
-              { href: "/admin/products", label: "Products", emoji: "🧁" },
+              { href: "/admin/orders", label: "Orders", icon: <IconBag size={22} /> },
+              { href: "/admin/products", label: "Products", icon: <IconCake size={22} /> },
             ].map((tab) => (
               <a
                 key={tab.href}
                 href={tab.href}
                 className="flex flex-1 flex-col items-center gap-0.5 py-2.5 text-xs font-semibold text-cocoa-light"
               >
-                <span className="text-xl">{tab.emoji}</span>
+                {tab.icon}
                 {tab.label}
               </a>
             ))}
